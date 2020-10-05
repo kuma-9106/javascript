@@ -3,80 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>Todo Listのサンプル</title>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
     <script type="text/javascript">
-    window.onload = function(){
-        'use strict';
-        
-        $('#add-todo').click(function(){
-         let text = $('#message').val();
-        // let newList = document.createElement('li');
-        // newList.innerHTML = '<label><input type="checkbox"/>' +text+ '</label>';
-        /*$('#todo').append(' <li><label><input type="checkbox"/>'+text+'</label></li>');*/
-        let input = $('<input type="checkbox"/>');
-        let label = $('<label/>').text(text).prepend(input);
-        let newList = $('<li/>').append(label);
-        
-        
-        // let newList = $('<li><label><input type="checkbox"/>' +text+ '</label></li>');
-        $('#todo').append(newList);
-        $('#message').val('');
-        });
-        
-        $('#move-finished').click(function(){
-         let done = $('#todo input:checked').parent();
-        //  console.log(done.parent());
-         $('#todo input').prop('checked',false);
-         done.parent().remove();
-         $('#finished').append(done.parent());
-        });
-        
-        $('#delete').click(function() {
-         let deleteItem = $('#finished input:checked').parent();
-         deleteItem.parent().remove();
-        });
-        
-        $('#checkall').click(function() {
-         if($(this).is(':checked')){
-             $('#todo input').prop('checked',true);
-         }else{
-            $('#todo input').prop('checked',false);  
-         }
-        });
-
-       };
     </script>
 </head>
 
 <body>
-    <h1 class="test">TODOリスト</h1>
-    <div id="header">
-        <input type="text" id="message" placeholder="やることを入力してください。" />
-        <button id="add-todo">「やることリスト」に追加する</button>
-    </div>
-
-    <h2>やることリスト</h2>
-        <label><input id="checkall" type="checkbox"/>全選択</label>
-    <ul id="todo">
-        <li><label><input type="checkbox"/>やること1</label></li>
-        <li><label><input type="checkbox"/>やること2</label></li>
-        <li><label><input type="checkbox"/>やること3</label></li>
-        <li><label><input type="checkbox"/>やること4</label></li>
-    </ul>
-    <div id="todo-command">
-        <button id="move-finished">チェックしたものを「やったことリスト」に移動する</button>
-    </div>
-
-    <h2>やったことリスト</h2>
-    <ul id="finished">
-        <li><label><input type="checkbox"/>やったこと1</label></li>
-        <li><label><input type="checkbox"/>やったこと2</label></li>
-    </ul>
-    <div id="finished-command">
-        <button id="delete">チェックしたものを削除する</button>
-    </div>
 </body>
 
 </html>
