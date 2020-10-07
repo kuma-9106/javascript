@@ -3,14 +3,19 @@
 <head>
     <meta charset="utf-8">
     <title>Todo Listのサンプル</title>
-    <link src="">
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
-    <script type="text/javascript">
-    </script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+   <div id="app">    
+    <p>Total Likes {{ total }}</p>
+    <like-component message="Like" @increment="incrementTotal"></like-component>
+    <like-component message="Awesome" @increment="incrementTotal"></like-component>
+    <like-component message="Perfect" @increment="incrementTotal"></like-component>
+    <like-component></like-component>
+   </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script type="text/javascript" src="js/main.js"></script>    
 </body>
 
 </html>
