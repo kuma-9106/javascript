@@ -5,37 +5,44 @@
     <title>Todo Listのサンプル</title>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="../js/test.js"></script>
 </head>
 
 <body>
-    <h1 class="test">TODOリスト</h1>
-    <div id="header">
-        <input type="text" id="message" placeholder="やることを入力してください。" />
-        <button id="add-todo">「やることリスト」に追加する</button>
-    </div>
+    <!--<h1 class="test">TODOリスト</h1>-->
+    <!--<div id="header">-->
+    <!--    <input type="text" id="message" placeholder="やることを入力してください。" />-->
+    <!--    <button id="add-todo">「やることリスト」に追加する</button>-->
+    <!--</div>-->
 
-    <h2>やることリスト</h2>
-        <label><input id="checkall" type="checkbox"/>全選択</label>
-    <ul id="todo">
-        <li><label><input type="checkbox"/>やること1</label></li>
-        <li><label><input type="checkbox"/>やること2</label></li>
-        <li><label><input type="checkbox"/>やること3</label></li>
-        <li><label><input type="checkbox"/>やること4</label></li>
-    </ul>
-    <div id="todo-command">
-        <button id="move-finished">チェックしたものを「やったことリスト」に移動する</button>
-    </div>
+    <!--<h2>やることリスト</h2>-->
+    <!--    <label><input id="checkall" type="checkbox"/>全選択</label>-->
+    <!--<ul id="todo">-->
+    <!--    <li><label><input type="checkbox"/>やること1</label></li>-->
+    <!--    <li><label><input type="checkbox"/>やること2</label></li>-->
+    <!--    <li><label><input type="checkbox"/>やること3</label></li>-->
+    <!--    <li><label><input type="checkbox"/>やること4</label></li>-->
+    <!--</ul>-->
+    <!--<div id="todo-command">-->
+    <!--    <button id="move-finished">チェックしたものを「やったことリスト」に移動する</button>-->
+    <!--</div>-->
 
-    <h2>やったことリスト</h2>
-    <ul id="finished">
-        <li><label><input type="checkbox"/>やったこと1</label></li>
-        <li><label><input type="checkbox"/>やったこと2</label></li>
-    </ul>
-    <div id="finished-command">
-        <button id="delete">チェックしたものを削除する</button>
+    <!--<h2>やったことリスト</h2>-->
+    <!--<ul id="finished">-->
+    <!--    <li><label><input type="checkbox"/>やったこと1</label></li>-->
+    <!--    <li><label><input type="checkbox"/>やったこと2</label></li>-->
+    <!--</ul>-->
+    <!--<div id="finished-command">-->
+    <!--    <button id="delete">チェックしたものを削除する</button>-->
+    <!--</div>-->
+    
+    
+    <div id="app">
+        <p>Hello {{ name }}</p>
+        <input type="text" v-model="name"/>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="../js/test.js"></script>
 </body>
 
 </html>
