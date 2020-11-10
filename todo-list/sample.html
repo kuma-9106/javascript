@@ -1,0 +1,74 @@
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Todo Listのサンプル</title>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            // javascriptのコードはここに書いてください。
+
+            function createListItem(message) {
+                let label = $("<label/>").text(message).prepend("<input type=\"checkbox\"/>");
+                return $("<li/>").append(label);
+            }
+
+            $(function(){
+                $("#add-todo").click(function() {
+                    let message = $("#message").val();
+                    if (message.length <= 0) {
+                        alert("やることを入力してからボタンを押してください。");
+                        return;
+                    }
+                    $("#todo").append(createListItem(message));
+                });
+
+                $("#move-finished").click(function() {
+                    let checkedLi = $("#todo li:has(input:checked)");
+                    if (checkedLi.length <= 0) {
+                        alert("やることをチェックしてからボタンを押してください。");
+                        return;
+                    }
+                    checkedLi.find("input").prop("checked", false);
+                    checkedLi.appendTo("#finished");
+                });
+
+                $("#delete").click(function() {
+                    let checkedLi = $("#finished li:has(input:checked)");
+                    if (checkedLi.length <= 0) {
+                        alert("やったことをチェックしてからボタンを押してください。");
+                        return;
+                    }
+                    if (confirm("本当に削除してもよろしいですか？")){
+                        checkedLi.remove();
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>TODOリスト</h1>
+        <div id="header">
+            <input type="text" id="message" placeholder="やることを入力してください。" />
+            <button id="add-todo">「やることリスト」に追加する</button>
+        </div>
+
+        <h2>やることリスト</h2>
+        <ul id="todo">
+            <li><label><input type="checkbox"/>やること1</label></li>
+            <li><label><input type="checkbox"/>やること2</label></li>
+        </ul>
+        <div id="todo-command">
+            <button id="move-finished">チェックしたものを「やったことリスト」に移動する</button>
+        </div>
+
+        <h2>やったことリスト</h2>
+        <ul id="finished">
+            <li><label><input type="checkbox"/>やったこと1</label></li>
+            <li><label><input type="checkbox"/>やったこと2</label></li>
+        </ul>
+        <div id="finished-command">
+            <button id="delete">チェックしたものを削除する</button>
+        </div>
+    </body>
+</html>
