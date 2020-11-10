@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8">
     <title>Todo Listのサンプル</title>
-
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-</head>
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" media="screen,print">
+  </head>
 
 <body>
     <!--<h1 class="test">TODOリスト</h1>-->
@@ -35,10 +35,26 @@
     <!--    <button id="delete">チェックしたものを削除する</button>-->
     <!--</div>-->
     
-    
-    <div id="app">
-        <p>Hello {{ name }}</p>
-        <input type="text" v-model="name"/>
+    <div id="app" class="container">
+        <h1>
+            <button @click="perge">Purge</button>
+            My Todos
+            <span class="info">({{ remaining.length }} / {{ todos.length }})</span>
+        </h1>
+        <ul>
+            <li v-for="(todo, index) in todos">
+                <input v-model="todo.isDone" type="checkbox"/>
+                <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+                <span @click="deleteItem" class="command">[x]</span>
+            </li>
+            <li v-show="!todos.length">
+                Nothing to do yay!!
+            </li>
+        </ul>
+        <form @submit.prevent="addItem">
+            <input type="text" v-model="newItem" />
+            <input type="submit" value="Add" />
+        </form>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
