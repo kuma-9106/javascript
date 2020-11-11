@@ -37,9 +37,14 @@
     
     <div id="app" class="container">
     　<p>Total Likes : {{ total }}</p>
-      <like-component msg="Like"></like-component>
-      <like-component msg="Awesome"></like-component>
-      <like-component msg="Great"></like-component>
+      <like-component msg="Like" @increment="incrementTotal"></like-component>
+      <like-component msg="Awesome" @increment="incrementTotal"></like-component>
+      <like-component msg="Great" @increment="incrementTotal"></like-component><br>
+      
+      
+      <label>Range</label>
+      <input type="range" min="0" max="10" v-model="range"/>
+      [{{ range }}]
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
