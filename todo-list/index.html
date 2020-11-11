@@ -36,25 +36,10 @@
     <!--</div>-->
     
     <div id="app" class="container">
-        <h1>
-            <button @click="perge">Purge</button>
-            My Todos
-            <span class="info">({{ remaining.length }} / {{ todos.length }})</span>
-        </h1>
-        <ul>
-            <li v-for="(todo, index) in todos">
-                <input v-model="todo.isDone" type="checkbox"/>
-                <span :class="{done: todo.isDone}">{{ todo.title }}</span>
-                <span @click="deleteItem" class="command">[x]</span>
-            </li>
-            <li v-show="!todos.length">
-                Nothing to do yay!!
-            </li>
-        </ul>
-        <form @submit.prevent="addItem">
-            <input type="text" v-model="newItem" />
-            <input type="submit" value="Add" />
-        </form>
+    　<p>Total Likes : {{ total }}</p>
+      <like-component msg="Like"></like-component>
+      <like-component msg="Awesome"></like-component>
+      <like-component msg="Great"></like-component>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
