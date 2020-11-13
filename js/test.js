@@ -25,11 +25,14 @@
         },
         data: {
             total: 0,
-            range: 5
+            currentTab: 1
         },
         methods: {
             incrementTotal: function(){
                 this.total++;
+            },
+            toggle: function(num){
+               this.currentTab = num 
             }
         }
     });
