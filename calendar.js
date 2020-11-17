@@ -1,16 +1,17 @@
-  function calendar() {
+  document.addEventListener('DOMContentLoaded', function() {
       
     "use strict";
     
     var calendarEl = document.getElementById('calendar');
     var calendarNode = new FullCalendar.Calendar(calendarEl, {
       
-      themeSystem: 'bootstrap4',
+          themeSystem: 'bootstrap4',
           header: {
             left: 'today,prev,next',
             center: 'title',
             right: 'custom1'
           },
+          locale: 'ja',
           customButtons: {
             custom1: {
               text: 'カレンダーコピー',
@@ -104,13 +105,9 @@
         
     });
 
-    // calendarNode.render();
-    
-    alert('test');
+    calendarNode.render();
     
     
     
 
-  }
-  
-  calendar();
+  });
