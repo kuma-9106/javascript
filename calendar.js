@@ -1,9 +1,8 @@
-  document.addEventListener('DOMContentLoaded', function() {
+  function calendar() {
       
     "use strict";
     
     var calendarEl = document.getElementById('calendar');
-
     var calendarNode = new FullCalendar.Calendar(calendarEl, {
       
       themeSystem: 'bootstrap4',
@@ -105,5 +104,13 @@
         
     });
 
-    calendarNode.render();
-  });
+    // calendarNode.render();
+    
+    alert('test');
+    
+    
+    
+
+  }
+  
+  calendar();
