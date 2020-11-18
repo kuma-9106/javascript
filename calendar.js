@@ -1,75 +1,81 @@
 document.addEventListener('DOMContentLoaded', function() {
- 
-  
+    
+    
+    var fullCalendar = this;
+    var calendars = document.querySelectorAll('.js-calendar');
     var calendarEl = document.getElementById('calendar');
-    var calendarNode = new FullCalendar.Calendar(calendarEl, {
-          themeSystem: 'bootstrap4',
-          headerToolbar: {
-            left: 'today prev next',
-            center: 'title',
-            right: false
+    var calendarElsNode = '';
+    
+    if (calendars.length) {
+      calendarElsNode = Array.prototype.slice.call(calendars, 0);
+      calendars.forEach(function (calendar) {
+        var calendarNode = new FullCalendar.Calendar(calendar, {
+            themeSystem: 'bootstrap4',
+            headerToolbar: {
+              left: 'today prev next',
+              center: 'title',
+              right: false
+              },
+    //       // customButtons: {
+    //       //   custom1: {
+    //       //     text: 'カレンダーコピー',
+    //       //     click: function click() {}
+    //       //   }
+    //       // }, 
+            locale: 'ja',
+            events: [{
+              start: '2020-11-01',
+              customer: true,
+              supplier: true
+            }, {
+              start: '2020-11-02',
+              customer: true,
+              supplier: true
+            }, {
+              start: '2020-11-03',
+              customer: true,
+              supplier: true
+            }, {
+              start: '2020-11-04',
+              customer: true,
+              supplier: true,
+              title: 'Happy Bday'
+            }, {
+              start: '2020-11-11',
+              customer: true,
+              supplier: true
+            }, {
+              start: '2020-11-22',
+              customer: true,
+              supplier: true
+            }, {
+              start: '2020-11-23',
+              customer: true,
+              supplier: false
+            }],
+            dayCellClassNames: 'js-modal',
+            eventDidMount: function (event, element) {
+              var customerFlug = '';
+              var supplierFlug = '';
+              var contentNo = 0;
+              var content = document.querySelectorAll('.fc-content-skeleton table thead tr td:not(.fc-other-month)');
+              var contentNode = Array.prototype.slice.call(content, 0);
+  
+              contentNode.forEach(function (elems) {
+                var elem = elems;
+                contentNo += 1;
+  
+                if ((event.customer === true || event.supplier === true) && event.start._i === elem.getAttribute('data-date')) {
+                  customerFlug = event.customer;
+                  supplierFlug = event.supplier;
+                  elem.textContent = null;
+                  elem.insertAdjacentHTML('beforeend', ConstantsDom.calendarCheck(contentNo, customerFlug, supplierFlug));
+                }
+              });
+              
             },
-          // customButtons: {
-          //   custom1: {
-          //     text: 'カレンダーコピー',
-          //     click: function click() {}
-          //   }
-          // },  
-          locale: 'ja',
-          events: [{
-            start: '2020-11-01',
-            customer: true,
-            supplier: true
-          }, {
-            start: '2020-11-02',
-            customer: true,
-            supplier: true
-          }, {
-            start: '2020-11-03',
-            customer: true,
-            supplier: true
-          }, {
-            start: '2020-11-04',
-            customer: true,
-            supplier: true,
-            title: 'Happy Bday'
-          }, {
-            start: '2020-11-11',
-            customer: true,
-            supplier: true
-          }, {
-            start: '2020-11-22',
-            customer: true,
-            supplier: true
-          }, {
-            start: '2020-11-23',
-            customer: true,
-            supplier: false
-          }],
-          dayCellClassNames: ['addSkd', 'js-modal'],
-          eventDidMount: function (event, element) {
-            var customerFlug = '';
-            var supplierFlug = '';
-            var contentNo = 0;
-            var content = document.querySelectorAll('.fc-content-skeleton table thead tr td:not(.fc-other-month)');
-            var contentNode = Array.prototype.slice.call(content, 0);
-
-            contentNode.forEach(function (elems) {
-              var elem = elems;
-              contentNo += 1;
-
-              if ((event.customer === true || event.supplier === true) && event.start._i === elem.getAttribute('data-date')) {
-                customerFlug = event.customer;
-                supplierFlug = event.supplier;
-                elem.textContent = null;
-                elem.insertAdjacentHTML('beforeend', ConstantsDom.calendarCheck(contentNo, customerFlug, supplierFlug));
-              }
-            });
-            
-
-          },
-          eventDidMount: function (view) {
-            // カレンダーコピ(button)
+            eventDidMount: function (view) {
+            // // カレンダーコピ(button)
             // var copyBtn = document.querySelector('.fc-custom1-button');
             // copyBtn.classList.add('js-modal');
             // Conversion.attributes(copyBtn, {
@@ -80,14 +86,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             //スケジュール追加
             var addSkds = document.querySelectorAll('.fc-daygrid-day-number');
-            addSkds.forEach(function(addSkd){
-              Conversion.attributes(addSkd, {
-                'href': '#',
-                'data-modal': '{"body":"js-modal-register", "title": "新規追加", "style": "530px"}',
-                'data-toggle': 'modal',
-                'data-target': '.js-modal-content'  
-              });
-            });
+                addSkds.forEach(function (addSkd){
+                addSkd.setAttribute('href', '#');
+                addSkd.setAttribute('data-modal', '{"body":"js-modal-register", "title": "新規追加", "style": "530px"}');
+                addSkd.setAttribute('data-toggle', 'modal');
+                addSkd.setAttribute('data-target', '.js-modal-content');
+                });
+
 
             var nextBtn = document.querySelector('.fc-next-button');
             var nowYear = new Date().getFullYear();
@@ -116,12 +121,13 @@ document.addEventListener('DOMContentLoaded', function() {
               }
             });
           }
+            
+            
+        });
+        calendarNode.render();
         
-    });
-
-    calendarNode.render();
-    
-    
+      });
+    }
     
 
   });
