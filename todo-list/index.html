@@ -90,13 +90,29 @@
         </div>
         
         <div id='calendar' class="js-calendar"></div>
-        <div id='calendar' class="js-calendar"></div>
-        <div id='calendar' class="js-calendar"></div>
-        <div id='calendar' class="js-calendar"></div>
+        
+        <ul>
+          <li><a class="button" data-value="quit">やめる</a></li>
+          <li><a class="button" data-value="keep">続ける</a></li>
+          <li><a class="button" data-value="die">死ぬ</a></li>
+        </ul>
         
     
     <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>-->
     <!--<script src="../js/test.js"></script>-->
+    <script>
+    
+    (function(){
+      'use strict';
+      $('li > a').on('click', function(e){
+        var target = e.target.getAttribute('data-value');
+        console.log(target);
+      });
+      
+    })();
+    
+      
+    </script>
     
 </body>
 

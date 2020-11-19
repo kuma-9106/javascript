@@ -2,3 +2,7 @@ body {
     font-size: 16px;
     font-family: verdana, sans-serif;
 }
+#calendar a {
+    color: #00000;
+    text-decoration: none;
+}
