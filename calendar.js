@@ -87,10 +87,12 @@ document.addEventListener('DOMContentLoaded', function() {
             //スケジュール追加
             var addSkds = document.querySelectorAll('.fc-daygrid-day-number');
                 addSkds.forEach(function (addSkd){
-                addSkd.setAttribute('href', '#');
-                addSkd.setAttribute('data-modal', '{"body":"js-modal-register", "title": "新規追加", "style": "530px"}');
-                addSkd.setAttribute('data-toggle', 'modal');
-                addSkd.setAttribute('data-target', '.js-modal-content');
+                addSkd.insertAdjacentHTML('afterbegin', '<a>');
+                addSkd.insertAdjacentHTML('beforeend', '</a>');
+                // addSkd.setAttribute('href', '#');
+                // addSkd.setAttribute('data-modal', '{"body":"js-modal-register", "title": "新規追加", "style": "530px"}');
+                // addSkd.setAttribute('data-toggle', 'modal');
+                // addSkd.setAttribute('data-target', '.js-modal-content');
                 });
 
 
