@@ -53,6 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
               customer: true,
               supplier: false
             }],
+            selectable: true,
+            dateClick: function (info) {
+              
+              alert('clicked!')
+            },
             dayCellClassNames: 'js-modal',
             eventDidMount: function (event, element) {
               var customerFlug = '';
@@ -72,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   elem.insertAdjacentHTML('beforeend', ConstantsDom.calendarCheck(contentNo, customerFlug, supplierFlug));
                 }
               });
+
               
             },
             eventDidMount: function (view) {
@@ -85,15 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
             // }); // Next(button)      
             
             //スケジュール追加
-            var addSkds = document.querySelectorAll('.fc-daygrid-day-number');
+                var addSkds = document.querySelectorAll('.fc-daygrid-day[data-date]');
                 addSkds.forEach(function (addSkd){
-                addSkd.insertAdjacentHTML('afterbegin', '<a>');
-                addSkd.insertAdjacentHTML('beforeend', '</a>');
-                // addSkd.setAttribute('href', '#');
-                // addSkd.setAttribute('data-modal', '{"body":"js-modal-register", "title": "新規追加", "style": "530px"}');
-                // addSkd.setAttribute('data-toggle', 'modal');
-                // addSkd.setAttribute('data-target', '.js-modal-content');
+                  addSkd.setAttribute('href', '#');
+                  addSkd.setAttribute('data-modal', '{"body":"js-modal-register", "title": "新規追加", "style": "530px"}');
+                  addSkd.setAttribute('data-toggle', 'modal');
+                  addSkd.setAttribute('data-target', '.js-modal-content');
                 });
+            
+            
 
 
             var nextBtn = document.querySelector('.fc-next-button');
