@@ -54,10 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
               supplier: false
             }],
             selectable: true,
-            dateClick: function (info) {
-              
-              alert('clicked!')
-            },
+            fixedWeekCount: false,
             dayCellClassNames: 'js-modal',
             eventDidMount: function (event, element) {
               var customerFlug = '';
@@ -77,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   elem.insertAdjacentHTML('beforeend', ConstantsDom.calendarCheck(contentNo, customerFlug, supplierFlug));
                 }
               });
-
+              
               
             },
             eventDidMount: function (view) {
@@ -91,16 +88,19 @@ document.addEventListener('DOMContentLoaded', function() {
             // }); // Next(button)      
             
             //スケジュール追加
-                var addSkds = document.querySelectorAll('.fc-daygrid-day[data-date]');
+                var addSkds = document.querySelectorAll('.fc-daygrid-day-frame');
                 addSkds.forEach(function (addSkd){
-                  addSkd.setAttribute('href', '#');
                   addSkd.setAttribute('data-modal', '{"body":"js-modal-register", "title": "新規追加", "style": "530px"}');
                   addSkd.setAttribute('data-toggle', 'modal');
                   addSkd.setAttribute('data-target', '.js-modal-content');
                 });
             
             
-
+            // var weeks = document.querySelectorAll('#calendar .fc-scrollgrid-sync-table tbody tr:last-child');
+            //     weeks.forEach(function (week){
+            //       week.style.display = 'none';
+            //     });
+                
 
             var nextBtn = document.querySelector('.fc-next-button');
             var nowYear = new Date().getFullYear();
