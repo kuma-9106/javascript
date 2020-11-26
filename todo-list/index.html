@@ -12,6 +12,11 @@
     <script src='../lib/locales/ja.js' type="text/javascript"></script>
     <script src='../lib/moment/moment.min.js' type="text/javascript"></script>
     <script src='../calendar.js' type="text/javascript"></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
     
   </head>
@@ -74,19 +79,7 @@
     
     　　<!--年齢算出-->
         <div id="app">
-          <div class="container">
-            
-            <label for="birthday">お誕生日は？</label>
-            <input type="date" id="birthday" v-model="birthday">
-            
-            <p v-if="age >= 0">{{ age }} 歳ですね！</p>
-            <p v-else>お誕生日を入力してください。</p>
-        
-            <p v-if="isComputedCalled" class="message">
-              Computedが呼び出されました。
-            </p>
-        
-          </div>
+
         </div>
         
         <div id='calendar' class="js-calendar"></div>
