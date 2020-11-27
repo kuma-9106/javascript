@@ -84,16 +84,10 @@
     
     <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>-->
     <!--<script src="../js/test.js"></script>-->
-    <script>
-    
-    (function(){
-      'use strict';
-      $('li > a').on('click', function(e){
-        var target = e.target.getAttribute('data-value');
-        alert(target);
-      });
-      
-    })();
+    <script type="text/babel">
+       (() => {
+         ReactDOM.render(<h1>Hello,world!</h1>,document.getElementById('app'));
+       })();
     
       
     </script>
