@@ -1,6 +1,16 @@
-function App() {
-            return <h1>Hello World!</h1>;
-        }
+
+
+
+class Liked extends React.Component{
+    
+    render() {
+        return(
+            
+        <span>ここにLikeボタン設置予定</span>    
+            );
         
-        ReactDOM.render(<App/>, document.getElementById('app'));
+    }
         
+}
+
+ReactDOM.render(<Liked/>, document.getElementById('app'))
