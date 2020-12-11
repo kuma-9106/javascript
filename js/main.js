@@ -36,5 +36,7 @@ window.onload = function(){
             $('#todo input').prop('checked',false);  
          }
         });
+        
+        
 
        };

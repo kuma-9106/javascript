@@ -137,5 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
     
+    let btn = document.querySelectorAll('.btn');
 
   });
