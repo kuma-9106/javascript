@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    let btn = document.querySelectorAll('.btn');
+    let btn = document.querySelector('.btn');
     
-    btn.addEventListener('click', e => {
+    btn.addEventListener('click', function(e) {
       var target = e.target.data;
-      console(target);
+      console.log(target);
     });
 
   });
