@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    let btn = document.querySelector('.btn');
+    let btns = document.querySelectorAll('.btn');
     
-    btn.addEventListener('click', function(e) {
-      var target = e.target.data;
-      console.log(target);
-    });
+    for(var i = 0; i < btns.length; i++){
+        btns[i].addEventListener('click',function(){
+            alert('クリックされたよ！');
+            this.style.color = 'red';
+        },false);
+    }
 
   });
