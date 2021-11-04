@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    let userName = lines[0];
-    console.log(`Hello,${userName}`);
+    let btn = document.querySelectorAll('.btn');
+    
+    btn.addEventListener('click', e => {
+      var target = e.target.data;
+      console(target);
+    });
 
   });
